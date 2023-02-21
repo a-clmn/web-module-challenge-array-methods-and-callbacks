@@ -18,6 +18,52 @@ Practice accessing data by console.log-ing the following pieces of data note.
 //(e) Winner of 2014 world cup final */
 
 
+// let finalsPlayersHT = filterBy2014 = fifaData.filter((element) => {
+//          return element.Year === 2014
+//     }).filter((element) => {
+//              return element.Stage === "Final"
+//          }).map((element) => {
+//          return element['Home Team Name']
+//     })
+
+// let finalsPlayersAT = filterBy2014 = fifaData.filter((element) => {
+//         return element.Year === 2014
+//    }).filter((element) => {
+//             return element.Stage === "Final"
+//         }).map((element) => {
+//         return element['Away Team Name']
+//    })
+
+// let finalsPlayersHTGOALS = filterBy2014 = fifaData.filter((element) => {
+//     return element.Year === 2014
+// }).filter((element) => {
+//         return element.Stage === "Final"
+//     }).map((element) => {
+//     return element['Home Team Goals']
+// })
+
+// let finalsPlayersATGOALS = filterBy2014 = fifaData.filter((element) => {
+//     return element.Year === 2014
+// }).filter((element) => {
+//         return element.Stage === "Final"
+//     }).map((element) => {
+//     return element['Away Team Goals']
+// })
+
+// let finalsPlayersWinner = filterBy2014 = fifaData.filter((element) => {
+//     return element.Year === 2014
+// }).filter((element) => {
+//         return element.Stage === "Final"
+//     }).map((element) => {
+//     return element['Home Team Name']
+// })
+
+// console.log("Task 1a", finalsPlayersHT)
+// console.log("Task 1b", finalsPlayersAT)
+// console.log("Task 1c", finalsPlayersHTGOALS)
+// console.log("Task 1d", finalsPlayersATGOALS)
+// console.log("Task 1e",finalsPlayersWinner)
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
 1. Receive an array as a parameter that will take the fifa data as its argument
@@ -26,10 +72,14 @@ Use getFinals to do the following:
 💡 HINT - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-    /* code here */
+ function getFinals(dataArray) {
+    return dataArray = filterFinalStage
  }
+ const filterFinalStage = fifaData.filter((element) => {
+     return element.Stage = "Final";
+  });
 
+ console.log("Task 2", getFinals(fifaData))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
