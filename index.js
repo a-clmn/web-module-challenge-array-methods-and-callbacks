@@ -73,11 +73,8 @@ Use getFinals to do the following:
 */
 
  function getFinals(dataArray) {
-    return dataArray = filterFinalStage
+    return dataArray.filter((element) => element.Stage === "Final");
  }
- const filterFinalStage = fifaData.filter((element) => {
-     return element.Stage = "Final";
-  });
 
  console.log("Task 2", getFinals(fifaData))
 
@@ -88,11 +85,10 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(array, CBFinals) {
+    return CBFinals(array).map(element => element.Year);
 }
-
-
+console.log("Task 3", getYears(fifaData, getFinals))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -102,9 +98,20 @@ Use the higher-order function getWinners to do the following:
 💡 HINT: Don't worry about ties for now (Please see the README file for info on ties for a stretch goal.)
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
-}
+function getWinners(array, CBFinals) {
+    // let winners = 0
+    // if (CBFinals(array).map(element => element["Home Team Goals"] > ["Away Team Goals"]) {
+    //      return winners = CBFinals(array).map(element => element["Home Team Name"])
+    // })
+    //  else {
+    //     return winners = CBFinals(array).map(element => element["Away Team Name"]);
+    //  }
+return CBFinals(array).map(element => 
+    element["Home Team Goals"] > element["Away Team Goals"] ? 
+    element["Home Team Name"] : element["Away Team Name"]);
+ }
+
+console.log("Task 4", getWinners(fifaData, getFinals))
 
 
 
@@ -119,11 +126,13 @@ Use the higher-order function getWinnersByYear to do the following:
 💡 HINT: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, CBFinals, CBYears, CBWinners) {
+    let country = CBWinners(array, CBFinals)
+    let year = CBYears(array, CBFinals)
+    return `In ${year.map(element => element.year)}, ${country} won the world cup!`
 }
 
-
+console.log("Task 5", getWinnersByYear(fifaData, getFinals, getYears, getWinners))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function `getAverageGoals` to do the following: 
